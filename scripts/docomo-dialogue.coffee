@@ -15,4 +15,4 @@ module.exports = (robot) ->
         nickname: msg.message.user.name
         context: ""
     , (err, response, body) ->
-      msg.send body.utt
+      msg.reply body.utt
