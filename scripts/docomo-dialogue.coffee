@@ -20,7 +20,7 @@ module.exports = (robot) ->
       json:
         utt: msg.match[1]
         nickname: msg.message.user.name
-        context: ""
+        context: context
     , (err, response, body) ->
       # Save context
       robot.brain.set key_docomo_dialogue_context, body.context
