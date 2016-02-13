@@ -7,5 +7,10 @@
 module.exports = (robot) ->
   robot.router.post "/gh-webhook", (req, res) ->
     data = req.body
-    robot.send {room: "#hubot"}, "```\n" + (JSON.stringify data) + "\n```"
-    res.send  "OK"
+    repository_name = data.repository.name
+    repository_url = data.repository.html_url
+    sender_name = data.sender.login
+    sender_url = data.sender.html_url
+    rep = "[#{repository_name}] submitted by #{sender_name}"
+    robot.send {room: "#hubot"}, rep
+    res.send  "ok"
