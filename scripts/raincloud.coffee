@@ -8,10 +8,10 @@
 #   Shuhei Fujiwara
 
 module.exports = (robot) ->
+  unless process.env.YAHOO_API_KEY
+    robot.logger.warning "YAHOO_API_KEY not found"
+    return
   robot.respond /raincloud (.+)/i, (msg) ->
-    unless process.env.YAHOO_API_KEY?
-      robot.respond "環境変数 YAHOO_API_KEY が見つからんかったよ"
-      return
     request = require "request"
     # Send request to YAHOO geocoder
     request
