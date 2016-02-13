@@ -37,7 +37,7 @@ module.exports = (robot) ->
         "lon": lon
         "width": 500
         "height": 300
-        "lverlay": "type:rainfall"
+        "overlay": "type:rainfall"
         "z": 12
       console.log params
       rep =
