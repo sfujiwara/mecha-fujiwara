@@ -10,8 +10,6 @@
 # Author:
 #   Shuhei Fujiwara
 
-
-
 module.exports = (robot) ->
   kuromoji = require 'kuromoji'
   kb = kuromoji.builder({dicPath: 'node_modules/kuromoji/dist/dict/'})
