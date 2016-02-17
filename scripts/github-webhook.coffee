@@ -7,10 +7,22 @@
 module.exports = (robot) ->
   robot.router.post "/gh-webhook", (req, res) ->
     data = req.body
-    repository_name = data.repository.name
-    repository_url = data.repository.html_url
-    sender_name = data.sender.login
-    sender_url = data.sender.html_url
-    rep = "[#{repository_name}] submitted by #{sender_name}"
-    robot.send {room: "#hubot"}, rep
+    event_type = req.get "X-Github-Event"
+    # PushEvent
+    if event_type is "push"
+      rep =
+        """
+        :octocat: GitHub Event: #{event_type}
+        [#{data.repository.name}:#{data.ref}] submitted by #{data.sender.login}
+        #{data.commits.message}
+        #{data.commits.url}
+        """
+      robot.send {room: "#hubot"}, rep
+    else
+      rep =
+        """
+        :octocat: GitHub Event: #{event_type}
+        何か知らんイベントが起こったよ
+        """
+      robot.send {room: "#hubot"}, rep
     res.send  "ok"
