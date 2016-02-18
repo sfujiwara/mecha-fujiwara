@@ -13,9 +13,9 @@ module.exports = (robot) ->
       rep =
         """
         :octocat: GitHub Event: #{event_type}
-        [#{data.repository.name}:#{data.ref}] submitted by #{data.sender.login}
-        #{data.commits[0].message}
-        #{data.commits[0].url}
+        [#{data.repository.name}: #{data.ref}] submitted by #{data.sender.login}
+        > #{data.commits[0].message}
+        > #{data.commits[0].url}
         """
       robot.send {room: "#hubot"}, rep
     else
