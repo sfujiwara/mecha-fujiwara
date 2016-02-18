@@ -1,5 +1,5 @@
 # Description
-#   Hubot search the word on weblio
+#   Hubot search the word at weblio
 #
 # Configuration:
 #   None
