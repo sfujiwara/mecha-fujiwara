@@ -21,7 +21,7 @@ module.exports = (robot) ->
     else
       rep =
         """
-        :octocat: GitHub Event: #{event_type}
+        :octocat: *GitHub Event: #{event_type}*
         何か知らんイベントが起こったよ
         """
       robot.send {room: "#hubot"}, rep
