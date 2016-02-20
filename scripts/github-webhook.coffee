@@ -12,17 +12,25 @@ module.exports = (robot) ->
     if event_type is "push"
       rep =
         """
-        :octocat: GitHub Event: #{event_type}
+        :octocat: *GitHub Event: #{event_type}*
         [#{data.repository.name}: #{data.ref}] submitted by #{data.sender.login}
         > #{data.commits[0].message}
         > #{data.commits[0].url}
+        """
+      robot.send {room: "#hubot"}, rep
+    # Deployment
+    else if event_type is "deployment"
+      rep =
+        """
+        :octocat: *GitHub Event: #{event_type}*
+        [#{data.repository.full_name}]
         """
       robot.send {room: "#hubot"}, rep
     else
       rep =
         """
         :octocat: *GitHub Event: #{event_type}*
-        何か知らんイベントが起こったよ
+        > 何か知らんイベントが起こったよ
         """
       robot.send {room: "#hubot"}, rep
     res.send  "ok"
