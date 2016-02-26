@@ -19,5 +19,5 @@ module.exports = (robot) ->
         name: msg.match[1]
       json: true
     , (err, response, body) ->
-      text = "> #{body.name}\nHP\tA\tB\tC\tD\tS\n#{body.hp}\t#{body.attack}\t#{body.block}\t#{body.contact}\t#{body.defense}\t#{body.speed}"
+      text = "#{body.name}\nHP #{body.hp} A #{body.attack} B #{body.block} C #{body.contact} D #{body.defense} S #{body.speed}"
       msg.send text

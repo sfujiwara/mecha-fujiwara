@@ -13,7 +13,6 @@
 module.exports = (robot) ->
   robot.respond /weather$/i, (msg) ->
     request = require 'request'
-    #msg.reply "test"
     request
       url: "http://weather.livedoor.com/forecast/webservice/json/v1"
       qs:
