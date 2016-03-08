@@ -10,6 +10,7 @@
 # Author:
 #   Shuhei Fujiwara
 
+###
 module.exports = (robot) ->
   kuromoji = require 'kuromoji'
   kb = kuromoji.builder({dicPath: 'node_modules/kuromoji/dist/dict/'})
@@ -21,3 +22,4 @@ module.exports = (robot) ->
     imoy = (yomi.split '').reverse().join('')
     if (yomi.length >= 5) and (yomi is imoy)
       msg.reply "#{yomi}！nice palindrome."
+###
