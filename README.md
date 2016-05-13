@@ -8,6 +8,27 @@ This is a chat bot created with the framework of [hubot].
 
 [hubot]: https://hubot.github.com/
 
+## How to Use
+
+### Set Environment Variables
+
+For example, set required environment variables as below:
+
+```sh
+# export HUBOT_SLACK_TOKEN=XXXXX
+export HUBOT_IDOBATA_API_TOKEN=XXXXX
+
+export DOCOMO_API_KEY=XXXXX
+export YAHOO_API_KEY=XXXXX
+```
+### Run Hubot
+
+```sh
+# ./bin/hubot
+# ./bin/hubot --adapter slack
+./bin/hubot --adapter idobata
+```
+
 ## List of Commands
 
 ### Reply to Mention

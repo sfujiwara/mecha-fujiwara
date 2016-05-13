@@ -2,7 +2,7 @@
   "name": "mecha-fujiwara",
   "version": "0.0.0",
   "private": true,
-  "author": "shuhei <shuhei.fujiwara+github@gmail.com>",
+  "author": "shuhei <shuhei.fujiwara@gmail.com>",
   "description": "A simple helpful robot for your Company",
   "dependencies": {
     "hubot": "^2.17.0",
@@ -19,7 +19,8 @@
     "hubot-shipit": "^0.2.0",
     "hubot-slack": "^3.4.2",
     "kuromoji": "0.0.5",
-    "request": "^2.67.0"
+    "request": "^2.67.0",
+    "hubot-idobata": "~0.3.0"
   },
   "engines": {
     "node": "0.10.x"
