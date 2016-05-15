@@ -4,4 +4,4 @@ node_modules
 
 dump.rdb
 set_env_variables.sh
-scripts/tg-*
+scripts/tg*
