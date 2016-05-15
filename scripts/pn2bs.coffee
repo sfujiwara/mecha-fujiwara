@@ -5,7 +5,7 @@
 #   None
 #
 # Commands:
-#   hubot pn2bs
+#   hubot pn2bs <pokemon>
 #
 # Author:
 #   Shuhei Fujiwara

@@ -8,10 +8,11 @@
 #   Shuhei Fujiwara
 
 module.exports = (robot) ->
-  unless process.env.YAHOO_API_KEY
-    robot.logger.warning "YAHOO_API_KEY not found"
-    return
   robot.respond /raincloud (.+)/i, (msg) ->
+    unless process.env.YAHOO_API_KEY
+      robot.logger.warning "YAHOO_API_KEY not found"
+      msg.reply "`YAHOO_API_KEY` が見つかりませんでした"
+      return
     request = require "request"
     # Send request to YAHOO geocoder
     request
@@ -31,7 +32,7 @@ module.exports = (robot) ->
       console.log "test"
       # Generate URL for static map with rainfall information
       url = "http://map.olp.yahooapis.jp/OpenLocalPlatform/V1/static"
-      params = 
+      params =
         "appid": process.env.YAHOO_API_KEY
         "lat": lat
         "lon": lon
@@ -45,4 +46,3 @@ module.exports = (robot) ->
         url + "?" + ("#{key}=#{val}" for key, val of params).join("&") +
         "\nあとは自分で調べてね\nhttp://weather.yahoo.co.jp/weather/raincloud/"
       msg.reply rep
-

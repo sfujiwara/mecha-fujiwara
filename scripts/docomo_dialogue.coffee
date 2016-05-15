@@ -4,21 +4,21 @@
 # Configuration:
 #   DOCOMO_API_KEY: required
 #
+# Commands:
+#   hubot dd <message>
+#
 # Author:
 #   Shuhei Fujiwara
 
 module.exports = (robot) ->
-  # Search other commands
-  # cmds = []
-  # for help in robot.helpCommands()
-  #   cmd = help.split(' ')[1]
-  #   cmds.push(cmd) if cmds.indexOf(cmd) is -1
   robot.respond /dd (.*)/i, (msg) ->
-    # cmd = msg.match[1].split(' ')[0]
-    # return unless cmds.indexOf(cmd) is -1
+    unless process.env.DOCOMO_API_KEY
+      robot.logger.warning "DOCOMO_API_KEY not found"
+      msg.reply "`DOCOMO_API_KEY` が見つかりませんでした"
+      return
     key_docomo_dialogue_context = 'docomo-dialogue-context'
     # Get doalogue context
-    context = robot.brain.get key_docomo_dialogue_context
+    context = robot.brain.get key_docomo_dialogue_context || ''
     # Send POST request
     request = require 'request'
     endpoint = 'https://api.apigw.smt.docomo.ne.jp/dialogue/v1/dialogue?APIKEY=' + process.env.DOCOMO_API_KEY

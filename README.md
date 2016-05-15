@@ -38,10 +38,13 @@ Note that you have to set environment variables for some commands.
 
 | command            | configuration    | description                                                         |
 |:-------------------|:-----------------|:--------------------------------------------------------------------|
+| `dd <message>`     | `DOCOMO_API_KEY` | reply using [docomo dialogue API] if any other command does not run |
+| `memo <message>`   |                  | hubot remembers the message                                         |
+| `memo`             |                  | hubot returns the message                                           |
+| `pn2bs <pokemon>`  |                  | hubot predicts base-stats and types from the name of pokemon        |
 | `raincloud <area>` | `YAHOO_API_KEY`  | get the image of raincloud using [yahoo API]                        |
 | `weather`          | -                | get the information of weather [weather hacks API]                  |
 | `weblio <word>`    | -                | search the word at [weblio]                                         |
-| `dd <message>`   | `DOCOMO_API_KEY` | reply using [docomo dialogue API] if any other command does not run |
 
 [docomo dialogue API]: https://dev.smt.docomo.ne.jp/?p=docs.api.page&api_name=dialogue&p_name=api_usage_scenario
 [weather hacks API]: http://weather.livedoor.com/weather_hacks/webservice
