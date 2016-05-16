@@ -1,5 +1,5 @@
 # Description
-#   Hubot tell us the weather
+#   Hubot does morphological analysis
 #
 # Configuration:
 #   None
@@ -25,6 +25,5 @@ module.exports = (robot) ->
         sentence: msg.match[1]
     , (err, response, body) ->
       # Reply
-      msg.reply err
-      msg.reply body
-      msg.reply response
+      result = JSON.stringify body, null, 2
+      msg.reply "goo API で形態素解析したよ\n```json\n#{result}\n```"
