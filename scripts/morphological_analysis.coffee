@@ -26,4 +26,4 @@ module.exports = (robot) ->
     , (err, response, body) ->
       # Reply
       result = JSON.stringify body, null, 2
-      msg.reply "goo API で形態素解析したよ\n```json\n#{result}\n```"
+      msg.reply "goo API で形態素解析したよ\n```\n#{result}\n```"
