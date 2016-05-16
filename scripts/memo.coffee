@@ -14,7 +14,7 @@
 module.exports = (robot) ->
   robot.respond /MEMO$/i, (msg) ->
     memo = robot.brain.get "memo"
-    msg.reply memo
+    msg.send memo
   robot.respond /MEMO (\S+)/i, (msg) ->
     robot.brain.set "memo", msg.match[1]
     msg.reply "覚えたよ\n> #{msg.match[1]}"
