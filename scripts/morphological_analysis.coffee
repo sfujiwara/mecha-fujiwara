@@ -2,7 +2,7 @@
 #   Hubot does morphological analysis
 #
 # Configuration:
-#   None
+#   DOCOMO_API_KEY: required
 #
 # Commands:
 #   hubot morph <sentence>

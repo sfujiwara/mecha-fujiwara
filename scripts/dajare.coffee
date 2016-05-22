@@ -1,11 +1,8 @@
 # Description
-#   Hubot does morphological analysis
+#   Hubot responds to your dajare
 #
 # Configuration:
-#   None
-#
-# Commands:
-#   hubot morph <sentence>
+#   DOCOMO_API_KEY: required
 #
 # Author:
 #   Shuhei Fujiwara

@@ -41,8 +41,10 @@ Note that you have to set environment variables for some commands.
 | `dd <message>`     | `DOCOMO_API_KEY` | reply using [docomo dialogue API] if any other command does not run |
 | `memo <message>`   |                  | hubot remembers the message                                         |
 | `memo`             |                  | hubot returns the message                                           |
+| `morph`            | `DOCOMO_API_KEY` | hubot does morphological analysis                                   |
 | `pn2bs <pokemon>`  |                  | hubot predicts base-stats and types from the name of pokemon        |
 | `raincloud <area>` | `YAHOO_API_KEY`  | get the image of raincloud using [yahoo API]                        |
+| `sh`               | -                | hubot runs shell script at `shell-scripts/<file-name>`              |
 | `weather`          | -                | get the information of weather [weather hacks API]                  |
 | `weblio <word>`    | -                | search the word at [weblio]                                         |
 
