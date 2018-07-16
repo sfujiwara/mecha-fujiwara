@@ -4,29 +4,30 @@
 
 This is a chat bot created with the framework of [hubot].
 
-[![Heroku Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
 [hubot]: https://hubot.github.com/
+
+## Requirements
+
+- Docker
+- Google Cloud SDK (optional)
 
 ## How to Use
 
+### Build Docker image
+
+```bash
+docker build -t mecha-fujiwara .
+```
+
 ### Set Environment Variables
 
-For example, set required environment variables as below:
+Create and edit `.env` file.
+You can set environment variables like [`.env_sample`](.env_sample).
 
-```sh
-# export HUBOT_SLACK_TOKEN=XXXXX
-export HUBOT_IDOBATA_API_TOKEN=XXXXX
+### Run on Local
 
-export DOCOMO_API_KEY=XXXXX
-export YAHOO_API_KEY=XXXXX
-```
-### Run Hubot
+```bash
 
-```sh
-# ./bin/hubot
-# ./bin/hubot --adapter slack
-./bin/hubot --adapter idobata
 ```
 
 ## List of Commands

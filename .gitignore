@@ -1,7 +1,2 @@
-node_modules
-.DS_Store*
-.hubot_history
-
-dump.rdb
-set_env_variables.sh
-scripts/tg*
+.DS_Store
+.env
