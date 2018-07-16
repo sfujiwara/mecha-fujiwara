@@ -27,7 +27,13 @@ You can set environment variables like [`.env_sample`](.env_sample).
 ### Run on Local
 
 ```bash
+bash run_local.sh
+```
 
+### Deploy to Google Cloud Platform
+
+```bash
+bash deploy_to_gcp.sh
 ```
 
 ## List of Commands
