@@ -1,11 +1,15 @@
 # Description
 #   Hubot responds to your dajare
 #
-# Configuration:
-#   DOCOMO_API_KEY: required
-#
 # Author:
 #   Shuhei Fujiwara
+
+kuromoji = require "kuromoji"
+
+DIC_PATH = "node_modules/kuromoji/dict/"
+tokenizer = null
+kuromoji.builder(dicPath: DIC_PATH).build (err, _tokenizer) ->
+  tokenizer = _tokenizer
 
 is_dajare = (yomi_list, pos_list) ->
   for i in [0..yomi_list.length]
@@ -16,21 +20,9 @@ is_dajare = (yomi_list, pos_list) ->
   return false
 
 module.exports = (robot) ->
-  robot.hear /(\S+)/i, (msg) ->
-    unless process.env.DOCOMO_API_KEY
-      robot.logger.warning "DOCOMO_API_KEY not found"
-      msg.reply "`DOCOMO_API_KEY` が見つかりませんでした"
-      return
-    # Send POST request
-    request = require 'request'
-    endpoint = 'https://api.apigw.smt.docomo.ne.jp/gooLanguageAnalysis/v1/morph?APIKEY=' + process.env.DOCOMO_API_KEY
-    request.post
-      url: endpoint
-      json:
-        sentence: msg.match[1]
-    , (err, response, body) ->
-      # Reply
-      word_list = body.word_list
-      yomi_list = (i[2] for i in word_list[0])
-      pos_list = (i[1] for i in word_list[0])
-      msg.send "ﾌﾟｷﾞｮｯﾋｗｗｗﾌｫｯﾌｫｰｯｗｗｗ" if is_dajare yomi_list, pos_list
+  robot.hear /(.+)/, (msg) ->
+    # msg.send msg.message.text
+    tokens = tokenizer.tokenize(msg.message.text)
+    yomi_list = (token["reading"] for token in tokens)
+    pos_list = (token["pos"] for token in tokens)
+    msg.send "ﾌﾟｷﾞｮｯﾋｗｗｗﾌｫｯﾌｫｰｯｗｗｗ" if is_dajare yomi_list, pos_list

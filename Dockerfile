@@ -16,5 +16,7 @@ RUN yo hubot --owner "sfujiwara" \
              --adapter slack
 # Add scripts directory
 ADD scripts/ scripts/
+# Install kuromoji.js
+RUN npm install --save kuromoji
 # Run hubot
 CMD ./bin/hubot --adapter slack
